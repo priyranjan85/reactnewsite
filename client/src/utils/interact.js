@@ -1,6 +1,8 @@
 import Web3 from 'web3';
 // import { config } from './config.js'
 
+alert("ttttttttttt");
+
 const contractABI = require("./contract-abi.json");
 const contractAddress = process.env.REACT_APP_CONTRACTADDRESS;
 
