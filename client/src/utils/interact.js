@@ -1,19 +1,27 @@
 import Web3 from 'web3';
 // import { config } from './config.js'
 
-alert("ttttttttttt");
-
 const contractABI = require("./contract-abi.json");
 const contractAddress = process.env.REACT_APP_CONTRACTADDRESS;
 
+
+if(window.ethereum===undefined)
+{
+ 
+
+ 
+}else{
+  window.ethereum.on('chainChanged', handleChainChanged);
+  window.ethereum.on('accountsChanged', handleAccountsChanged);
+}
 // Handle changed or accounts changed
-window.ethereum.on('chainChanged', handleChainChanged);
+
 function handleChainChanged(_chainId) {
   // We recommend reloading the page, unless you must do otherwise
   window.location.reload();
 }
 
-window.ethereum.on('accountsChanged', handleAccountsChanged);
+
 // For now, 'eth_accounts' will continue to always return an array
 function handleAccountsChanged(accounts) {
   if (accounts.length === 0) {
